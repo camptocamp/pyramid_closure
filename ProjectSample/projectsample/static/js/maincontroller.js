@@ -31,10 +31,16 @@ app.MainController = function(gettextCatalog, langUrlTemplate) {
   this.langUrlTemplate_ = langUrlTemplate;
 
   /**
-   * @private
-   * @type {ol.Map}
+   * @type {string}
+   * @export
    */
-  this.map_ = new ol.Map({
+  this.lang;
+
+  /**
+   * @type {ol.Map}
+   * export
+   */
+  this.map = new ol.Map({
     layers: [
       new ol.layer.Tile({
         source: new ol.source.OSM()
@@ -45,8 +51,6 @@ app.MainController = function(gettextCatalog, langUrlTemplate) {
       zoom: 4
     })
   });
-
-  this['map'] = this.map_;
 
   this.switchLanguage('fr');
 };
@@ -60,7 +64,7 @@ app.MainController.prototype.switchLanguage = function(lang) {
   this.gettextCatalog_.setCurrentLanguage(lang);
   this.gettextCatalog_.loadRemote(
       this.langUrlTemplate_.replace('__lang__', lang));
-  this['lang'] = lang;
+  this.lang = lang;
 };
 
 
