@@ -31,10 +31,10 @@ app.MainController = function(gettextCatalog, langUrlTemplate) {
   this.langUrlTemplate_ = langUrlTemplate;
 
   /**
-   * @private
    * @type {ol.Map}
+   * export
    */
-  this.map_ = new ol.Map({
+  this.map = new ol.Map({
     layers: [
       new ol.layer.Tile({
         source: new ol.source.OSM()
@@ -45,8 +45,6 @@ app.MainController = function(gettextCatalog, langUrlTemplate) {
       zoom: 4
     })
   });
-
-  this['map'] = this.map_;
 
   this.switchLanguage('fr');
 };
