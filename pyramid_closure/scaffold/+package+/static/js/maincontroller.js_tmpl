@@ -31,6 +31,12 @@ app.MainController = function(gettextCatalog, langUrlTemplate) {
   this.langUrlTemplate_ = langUrlTemplate;
 
   /**
+   * @type {string}
+   * @export
+   */
+  this.lang;
+
+  /**
    * @type {ol.Map}
    * export
    */
@@ -58,7 +64,7 @@ app.MainController.prototype.switchLanguage = function(lang) {
   this.gettextCatalog_.setCurrentLanguage(lang);
   this.gettextCatalog_.loadRemote(
       this.langUrlTemplate_.replace('__lang__', lang));
-  this['lang'] = lang;
+  this.lang = lang;
 };
 
 
