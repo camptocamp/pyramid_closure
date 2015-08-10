@@ -12,10 +12,11 @@ help:
 	@echo "- cleanall           Remove all the build artefacts"
 	@echo "- closure-tools      Update the closure build tools"
 	@echo "- flake8             Run flake8 checker on the Python code"
+	@echo "- test               Run the tests"
 	@echo
 
 .PHONY: check
-check: flake8
+check: flake8 test
 
 .PHONY: cleanall
 cleanall:
@@ -34,6 +35,10 @@ install: install-dev-egg
 
 .PHONY: install-dev-egg
 install-dev-egg: $(SITE_PACKAGES)/pyramid-closure.egg-link
+
+.PHONY: test
+test: install-dev-egg
+	.build/venv/bin/python setup.py test
 
 pyramid_closure/closure/%.py: .build/closure-library-master/closure/bin/build/%.py
 	cp $< $@
