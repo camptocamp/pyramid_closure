@@ -7,7 +7,7 @@ class Template(PyramidTemplate):
 
 
 def includeme(config):
-    # add a view and a route for the Closure deps file
+    # add a route and a view for the Closure deps file
+    config.add_route('deps.js', '/closure-deps.js', request_method='GET')
     config.add_view('pyramid_closure.views:depsjs', route_name='deps.js',
                     renderer='string')
-    config.add_route('deps.js', '/closure-deps.js', request_method='GET')
