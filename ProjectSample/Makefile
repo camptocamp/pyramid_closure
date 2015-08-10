@@ -126,7 +126,7 @@ projectsample/static/build/locale/fr/projectsample.json: projectsample/locale/fr
 .build/venv/bin/flake8: .build/dev-requirements.timestamp
 
 .build/dev-requirements.timestamp: .build/venv
-	.build/venv/bin/pip install -r dev-requirements.txt > /dev/null 2>&1
+	.build/venv/bin/pip install --trusted-host pypi.camptocamp.net -r dev-requirements.txt > /dev/null 2>&1
 	touch $@
 
 .build/venv:
@@ -134,7 +134,7 @@ projectsample/static/build/locale/fr/projectsample.json: projectsample/locale/fr
 	virtualenv --no-site-packages $@
 
 $(SITE_PACKAGES)/ProjectSample.egg-link: .build/venv setup.py
-	.build/venv/bin/pip install -r requirements.txt
+	.build/venv/bin/pip install --trusted-host pypi.camptocamp.net -r requirements.txt
 
 common.ini: common.ini.in
 	sed 's|__CLOSURE_LIBRARY_PATH__|$(CLOSURE_LIBRARY_PATH)|g' $< > $@

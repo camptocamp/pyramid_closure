@@ -43,7 +43,7 @@ pyramid_closure/closure/%.py: .build/closure-library-master/closure/bin/build/%.
 	virtualenv --no-site-packages $@
 
 .build/venv/bin/flake8: .build/venv
-	.build/venv/bin/pip install -r dev-requirements.txt > /dev/null 2>&1
+	.build/venv/bin/pip install --trusted-host pypi.camptocamp.net -r dev-requirements.txt > /dev/null 2>&1
 	touch $@
 
 .build/closure-library-master/closure/bin/build/%.py: .build/closure-library-master
@@ -54,4 +54,4 @@ pyramid_closure/closure/%.py: .build/closure-library-master/closure/bin/build/%.
 	(cd .build && unzip master.zip && rm master.zip)
 
 $(SITE_PACKAGES)/pyramid-closure.egg-link: .build/venv setup.py
-	.build/venv/bin/pip install -r requirements.txt
+	.build/venv/bin/pip install --trusted-host pypi.camptocamp.net -r requirements.txt
