@@ -30,8 +30,8 @@ import posixpath
 import shlex
 import sys
 
-import source
-import treescan
+from pyramid_closure.closure import source
+from pyramid_closure.closure import treescan
 
 
 __author__ = 'nnaze@google.com (Nathan Naze)'
