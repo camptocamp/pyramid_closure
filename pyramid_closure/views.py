@@ -1,6 +1,7 @@
-from itertools import izip, chain
+from itertools import chain
 
 from pyramid.settings import aslist
+from six import string_types
 
 from .closure import depswriter
 
@@ -12,7 +13,7 @@ def flatten(l):
 
 def pairwise(iterable):
     a = flatten(iterable)
-    return izip(a, a)
+    return zip(a, a)
 
 
 def depsjs(request):
@@ -26,7 +27,7 @@ def depsjs(request):
 
     if roots is None:
         roots = []
-    elif isinstance(roots, basestring):
+    elif isinstance(roots, string_types):
         roots = aslist(roots)
 
     for root in roots:
@@ -38,7 +39,7 @@ def depsjs(request):
 
     if roots_with_prefix is None:
         roots_with_prefix = []
-    elif isinstance(roots_with_prefix, basestring):
+    elif isinstance(roots_with_prefix, string_types):
         roots_with_prefix = [aslist(roots_with_prefix)]
 
     for prefix, root in pairwise(roots_with_prefix):

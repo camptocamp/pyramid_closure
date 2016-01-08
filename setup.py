@@ -9,7 +9,8 @@ with open(os.path.join(here, 'CHANGES.txt')) as f:
     CHANGES = f.read()
 
 requires = [
-    'pyramid'
+    'pyramid',
+    'six'
     ]
 
 setup(name='pyramid_closure',
