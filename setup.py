@@ -15,7 +15,7 @@ requires = [
 
 setup(
     name='pyramid_closure',
-    version='1.0.0',
+    version='1.1.0',
     description='pyramid_closure',
     long_description=README + '\n\n' + CHANGES,
     classifiers=[
