@@ -30,7 +30,10 @@ class TestDepsjs(unittest.TestCase):
         from pyramid_closure.views import depsjs
         request = testing.DummyRequest()
         resp = depsjs(request)
-        self.assertEqual(resp, "goog.addDependency('http://example.com/static/js/appmodule.js', ['app'], []);\ngoog.addDependency('http://example.com/static/js/main.js', ['app_main'], []);\ngoog.addDependency('http://example.com/static/js/maincontroller.js', ['app.MainController'], ['app']);\n")  # noqa
+        self.assertEqual(resp, """goog.addDependency('http://example.com/static/js/appmodule.js', ['app'], [], false);
+goog.addDependency('http://example.com/static/js/main.js', ['app_main'], [], false);
+goog.addDependency('http://example.com/static/js/maincontroller.js', ['app.MainController'], ['app'], false);
+""")
 
     def test_roots_with_prefix_unstructured(self):
         roots_with_prefix = \
@@ -43,4 +46,7 @@ class TestDepsjs(unittest.TestCase):
         from pyramid_closure.views import depsjs
         request = testing.DummyRequest()
         resp = depsjs(request)
-        self.assertEqual(resp, "goog.addDependency('http://example.com/static/js/appmodule.js', ['app'], []);\ngoog.addDependency('http://example.com/static/js/main.js', ['app_main'], []);\ngoog.addDependency('http://example.com/static/js/maincontroller.js', ['app.MainController'], ['app']);\n")  # noqa
+        self.assertEqual(resp, """goog.addDependency('http://example.com/static/js/appmodule.js', ['app'], [], false);
+goog.addDependency('http://example.com/static/js/main.js', ['app_main'], [], false);
+goog.addDependency('http://example.com/static/js/maincontroller.js', ['app.MainController'], ['app'], false);
+""")
