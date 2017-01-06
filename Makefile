@@ -28,7 +28,7 @@ closure-tools: $(addprefix pyramid_closure/closure/, $(CLOSURE_TOOLS_FILES))
 
 .PHONY: flake8
 flake8: .build/venv/bin/flake8
-	.build/venv/bin/flake8 --exclude pyramid_closure/closure pyramid_closure
+	.build/venv/bin/flake8 --max-line-length=110 --exclude=pyramid_closure/closure pyramid_closure
 
 .PHONY: install
 install: install-dev-egg
