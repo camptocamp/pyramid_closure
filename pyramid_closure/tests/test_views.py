@@ -21,8 +21,10 @@ class TestDepsjs(unittest.TestCase):
         settings = {
             'pyramid_closure': {
                 'roots_with_prefix': [
-                    ['pyramid_closure:tests/fixtures/static/js',
-                     'pyramid_closure/tests/fixtures/static/js']
+                    [
+                        'pyramid_closure:tests/fixtures/static/js',
+                        'pyramid_closure/tests/fixtures/static/js',
+                    ]
                 ]
             }
         }
