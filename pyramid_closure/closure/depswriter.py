@@ -31,8 +31,8 @@ import posixpath
 import shlex
 import sys
 
-import source
-import treescan
+from . import source
+from . import treescan
 
 
 __author__ = 'nnaze@google.com (Nathan Naze)'
